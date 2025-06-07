@@ -2,7 +2,7 @@ from model.payment import Payment
 from repository.database import db
 from payments.pix import Pix
 
-from flask import Flask, jsonify, request, send_file
+from flask import Flask, jsonify, request, send_file, render_template
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
@@ -50,13 +50,18 @@ def get_image(file_name):
     return send_file(f'static/img/{file_name}.png', mimetype='image/png')
 
 
+'''
+---------------------------------------------------------------------
+        RECUPERANDO O QR CODE NA REQUISIÇÃO
+---------------------------------------------------------------------
+'''
 @app.route("/payments/pix/confirmation", methods=['POST'])
 def pix_confirmation(): # webhook pois sera requisitado pra informar 
     return jsonify({"message":"The payment has been confirmed"}), 200
 
 @app.route("/payments/pix/<int:payment_id>", methods=['GET'])
 def payment_pix_page(payment_id):
-    return 'Pagammento pix'
+    return render_template('payment.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
