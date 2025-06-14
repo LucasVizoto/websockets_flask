@@ -92,6 +92,9 @@ def pix_confirmation(): # webhook pois sera requisitado pra informar
 def payment_pix_page(payment_id):
     payment = Payment.query.get(payment_id)
 
+    if not payment:
+        return render_template('404.html')
+
     if payment.paid: #ou seja, se já foi pago
         return render_template('confirmed_payment.html', 
                                #importante passar aqui todos as variáveis utilizadas no html
@@ -115,6 +118,10 @@ def payment_pix_page(payment_id):
 @socketio.on('connect')
 def handle_connet():
     print("client connected to the server")
+    
+@socketio.on('disconnect')
+def handle_disconnet():
+    print("client disconnected to the server")
 
 
 if __name__ == "__main__":
