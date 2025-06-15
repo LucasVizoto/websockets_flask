@@ -22,3 +22,4 @@ def test_pix_create_payment():
 
     qr_code_path = payment_info["qr_code_path"]
     assert os.path.isfile(f"./static/img/{qr_code_path}.png")
+    # fazendo a verificação se o aqruivo de imagem foi criado
