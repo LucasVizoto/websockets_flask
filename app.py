@@ -40,7 +40,7 @@ def create_payment_pix():
     db.session.commit()
 
     return jsonify({"message":"The payment has been created",
-                    "payment": new_payment.to_dict()}), 200
+                    "payment": new_payment.to_dict()}), 201
 
 '''
 ---------------------------------------------------------------------
