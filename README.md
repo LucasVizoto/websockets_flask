@@ -57,7 +57,7 @@ pip install -r requirements.txt
 
 - Criar um novo Pagamento
 
-```http
+```
   POST /payments/pix
 ```
 
@@ -68,7 +68,7 @@ pip install -r requirements.txt
 
 
 #### Resposta esperada: 
-```http
+```
 HTTP/1.1 201 Created
 Content-Type: application/json
 
@@ -90,18 +90,18 @@ Content-Type: application/json
 
 - Acesso à página HTML com o pagamento recém criado
 
-```http
+```
   {host}/payments/pix/id
 ```
 #### Resposta esperada: 
 
-![Print Página](https://raw.githubusercontent.com/LucasVizoto/websockets_flask/refs/heads/main/templates/screenshots/screenshot_1.png)
+![Print Página](https://raw.githubusercontent.com/GabrielCasemiro/py-payment/refs/heads/main/screenshots/screenshot_1.png)
 
 ---
 #### 
 - Confirmação de Pagamento
 
-```http
+```
   POST /payments/pix/confirmation
 ```
 
@@ -120,13 +120,13 @@ Content-Type: application/json
 ```
 * Verificar se a página de exibição do pagamento foi atualizada para a de Pagamento Confirmado.
 
-![Print Página de Pagamento Confirmado](https://raw.githubusercontent.com/LucasVizoto/websockets_flask/refs/heads/main/templates/screenshots/screenshot_2.png)
+![Print Página de Pagamento Confirmado](https://raw.githubusercontent.com/GabrielCasemiro/py-payment/refs/heads/main/screenshots/screenshot_2.png)
 
 ---
 #### 
 - Retorno do QR Code gerado
 
-```http
+```
   GET /payments/pix/qr_code/qr_code_payment_ + uuid
 ```
 
